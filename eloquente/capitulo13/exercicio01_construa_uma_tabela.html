@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Exercício 01 - Construa uma Tabela</title>
+    <meta charset="UTF-8">
+    <style>
+	  /* Define uma visualização mais limpa para tabelas */
+	  table  { border-collapse: collapse; }
+	  td, th { border: 1px solid black; padding: 3px 8px; }
+	  th     { text-align: left; }
+  	</style>
+  </head>
+
+  <script src="mountains.js"></script>
+  <script src="13_dom.js"></script>
+
+  <body>
+    <h1>Exercício 01 - Construa uma Tabela</h1>
+    <script type="text/javascript">
+
+    	//células de cabeçalho (<th>)
+    	//células comuns (<td>).
+ 
+    	var buildTable = (function(){
+    		'use strict'
+    		var array = MOUNTAINS;
+    		var node = document.createElement("table");
+
+    		var propsArray = Object.keys(array[0]);
+
+    		var $tr = document.createElement("tr");
+		    propsArray.forEach(function(propName) {
+		      var $th = document.createElement("th");
+		      $th.textContent = propName;
+		      $tr.appendChild($th);
+		    });
+
+		    node.appendChild($tr);
+
+		    array.forEach(function(object) {
+		      var $tr2 = document.createElement("tr");
+
+		      propsArray.forEach(function(propName) {
+
+		        var $td = document.createElement("td");
+		        $td.textContent = object[propName];
+
+		        if (typeof object[propName] === "number")
+		          $td.style.textAlign = "right";
+
+		        $tr2.appendChild($td);
+		      });
+
+		      node.appendChild($tr2);
+
+		    });
+
+		    return node;
+		})();
+
+		document.body.appendChild(buildTable);
+    	
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Exercício 02 - Elementos por nome de Tags</title>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <h1>
+    	Cabeçalho com um elemento <span>span</span>.
+    </h1>
+	<p>Um parágrafo com <span>um</span>, <span>dois</span> spans.</p>
+    
+	<script>
+
+		function byTagName(node, tagName) {
+		  	'use strict'
+		  	var array = [];
+		  	tagName = tagName.toUpperCase();
+		  
+		  	function recursiva(node) {
+		      for (var i = 0; i < node.childNodes.length; i++) {
+		        if ((node.childNodes[i].nodeType == document.ELEMENT_NODE) && (node.childNodes[i].nodeName == tagName)) array.push(node.childNodes[i]);
+		          recursiva(node.childNodes[i]);
+	          }
+	       }
+	      	recursiva(node);
+	    	return array;
+		}
+
+	  console.log(byTagName(document.body, "h1").length);
+	  // → 1
+	  console.log(byTagName(document.body, "span").length);
+	  // → 3
+	  var para = document.querySelector("p");
+	  console.log(byTagName(para, "span").length);
+	  // → 2
+	</script>
+
+  </body>
+</html>
