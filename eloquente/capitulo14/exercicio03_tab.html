@@ -1,0 +1,50 @@
+<div id="wrapper">
+        <div data-tabname="one">Tab one</div>
+        <div data-tabname="two">Tab two</div>
+        <div data-tabname="three">Tab three</div>
+</div>
+<script>
+
+    (function(){
+        'use strict';
+        function asTabs(node) {
+            var tabname = [];
+            var $div = document.createElement("div");
+
+            node.childNodes.forEach(function(e){
+                if(e.nodeType == document.ELEMENT_NODE)
+                    tabname.push(e);
+            });
+            
+            //cria botões
+            tabname.forEach(function(element, index) {
+                var $button = document.createElement("button");
+        
+                $button.textContent = element.getAttribute("data-tabname");
+                $button.addEventListener("click", function(){
+                    selectButton(index);
+                });
+
+                $div.appendChild($button);
+            });
+            //insere a $div
+            node.insertBefore($div, node.firstChild);
+           
+
+            function selectButton(index) {
+                tabname.forEach(function(element, i) {
+                    if (index == i) element.style.display = "";
+                    else  element.style.display = "none";
+                });                
+                $div.childNodes.forEach(function(button, i){
+                    if (i == index) button.style.background = "orange";
+                    else button.style.background = "";
+                });
+            }
+            selectButton(0);//seleciona o primeiro botão
+        }
+        asTabs(document.querySelector("#wrapper"));
+    })();
+
+    
+</script>

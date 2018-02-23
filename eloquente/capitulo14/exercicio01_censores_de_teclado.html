@@ -1,0 +1,24 @@
+<input type="text">
+<script>  
+    (function(){
+        'use strict';
+        var field = document.querySelector("input");
+        //keydown: tecla pressionada
+        field.addEventListener("keydown", function(event) {
+            var $keyCode = event.keyCode;
+            var array = ["Q", "W", "X"];
+
+            array.forEach(function(element){
+                if($keyCode == element.charCodeAt(0))
+                    event.preventDefault();
+            });        
+        });
+
+    })();
+
+    /*OBS.:
+      Se o condutor não é desejado que o comportamento normal aconteça
+      pode simplesmente chamar o método preventDefault no objeto de evento.*/
+
+
+</script>
