@@ -1,0 +1,81 @@
+<!Doctype html>
+<html>
+    <script src="game.js"></script>
+    <script src="game_levels.js"></script>
+    <link rel="stylesheet" href="game.css">
+
+    <body>
+        <script>
+
+            function runLevel(level, Display) {
+                'use strict';
+                var display = new Display(document.body, level);
+                var state = State.start(level);
+                var ending = 1;            
+                var flag = "yes";
+
+                return new Promise(function(resolve) {
+                    window.addEventListener("keydown", esc);
+                    
+                    function esc(event){
+                        if (event.keyCode != 27) return;
+                        event.preventDefault();
+
+                        if(flag == "no"){
+                            flag = "yes";
+                            runAnimation(frame);
+                        } else{
+                            if (flag == "yes") flag = "pausing";
+                            else flag = "yes";
+                        }
+                    }
+
+                    function frame(time) {
+
+                        if (flag == "pausing") {
+                            flag = "no";
+                            return false;
+                        }
+
+                        state = state.update(time, arrowKeys);
+                        display.setState(state);
+
+                        if (state.status == "playing") return true;
+                        else{
+                            if (ending > 0) {
+                                ending -= time;
+                                return true;
+                            }else {  
+                                display.clear();
+                                window.removeEventListener("keydown", esc);
+                                resolve(state.status);
+                                return false;
+                            }
+                        }
+                    }
+                    runAnimation(frame);
+                });
+            }
+
+            function trackKeys(keys) {
+                var down = Object.create(null);
+
+                function track(event) {
+                    if (keys.includes(event.key)) {
+                        down[event.key] = event.type == "keydown";
+                        event.preventDefault();
+                    }
+                }
+                window.addEventListener("keydown", track);
+                window.addEventListener("keyup", track);
+                down.remove = function () {
+                    window.removeEventListener("keydown", track);
+                    window.removeEventListener("keyup", track);
+                };
+                return down;
+            }
+            runGame(GAME_LEVELS, DOMDisplay);
+        </script>
+    </body>
+
+</html>
