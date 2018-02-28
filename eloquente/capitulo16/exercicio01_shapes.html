@@ -1,0 +1,71 @@
+<canvas width="600" height="200"></canvas>
+<script>
+    var cx = document.querySelector("canvas").getContext("2d");
+    var i = 0;
+    
+    (function(){
+        'use strict';
+   
+        /*retângulo*/
+        cx.beginPath();
+        
+        cx.moveTo(30, 30);
+        cx.lineTo(80, 30);
+            
+        cx.lineTo(110, 80);
+        cx.lineTo(-1, 80);
+        cx.lineTo(30, 30);
+
+        cx.stroke();
+        
+        /*diamante*/    
+        flipHorizontally(cx, 170);
+        function flipHorizontally(context, around) {
+            context.translate(around, 60);
+            cx.rotate(Math.PI / 4);
+            cx.fillStyle = "red";      
+            cx.fillRect(-40, -40, 60, 60);
+            cx.resetTransform();
+        }
+
+        /*zigzague*/
+        cx.beginPath();
+        cx.moveTo(240, 20);
+        for (var i = 0; i < 7; i++) {
+            cx.lineTo(320, 20+i*9);
+            cx.lineTo(240, 20+i*9);
+        }
+        cx.stroke();
+
+        /*espiral*/
+        i = 0;
+        cx.beginPath();
+        cx.moveTo(390, 70);
+    
+        while(i<200){
+        var dist = 50 * i / 300;
+        var x = 390 + Math.cos(i * Math.PI / 30) * dist;
+        var y = 70 + Math.sin(i * Math.PI / 30) * dist;
+        
+        cx.lineTo(x,y);
+        i++;
+        }
+        cx.stroke();
+
+        /*estrela*/
+        i = 0;
+        cx.beginPath();
+        cx.moveTo(490, 70);
+        do{
+        var cos = Math.cos(i * Math.PI / 4) * 50;
+        var sin = Math.sin(i * Math.PI / 4) * 50;
+            //desenha uma curva
+        cx.quadraticCurveTo(490, 70, 490 + cos, 70 + sin);
+        i++;
+        }while(i < 9);
+        cx.fillStyle = "yellow";
+        cx.fill();
+
+    })();
+
+</script>

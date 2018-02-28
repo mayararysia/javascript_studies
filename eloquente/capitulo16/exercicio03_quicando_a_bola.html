@@ -1,0 +1,43 @@
+<script src="game.js"></script>
+<script src="game_levels.js"></script>
+<script src="canvas.js"></script>
+<canvas width="400" height="400"></canvas>
+<script>
+
+    (function(){
+        'use strict';
+   
+        var cx = document.querySelector("canvas").getContext("2d");
+
+        var lastTime = null;        
+        var x , speedX , y = 300;  
+        var speedY = 60;
+       
+        x = speedX = 100;
+
+        function frame(time) {
+            if (lastTime != null)
+                updateAnimation(Math.min(100, time - lastTime) / 1000);
+            lastTime = time;
+            requestAnimationFrame(frame);
+        }
+        requestAnimationFrame(frame);
+
+        function updateAnimation(step) {
+            cx.clearRect(0, 0, 400, 400);
+            cx.strokeStyle = "black";
+            cx.lineWidth = 4;
+            cx.strokeRect(45, 45, 350, 350);
+            
+            x += step * speedX;
+            y += step * speedY;
+            if (x < 45 + 10 || x > 375 - 10) speedX = -speedX;
+            if (y < 45 + 10 || y > 375 - 10) speedY = -speedY;
+            
+            cx.fillStyle = "fuchsia";
+            cx.beginPath();
+            cx.arc(x, y, 10, 0, 7);
+            cx.fill();
+        }
+    })();
+</script>
