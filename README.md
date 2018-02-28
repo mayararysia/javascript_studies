@@ -4,5 +4,5 @@
 
 ```
 eloquente/
+* [Eloquent Javascript](https://github.com/braziljs/eloquente-javascript) - **Second Edition**
 ```
-[Eloquent Javascript](https://github.com/braziljs/eloquente-javascript) - **Second Edition**
