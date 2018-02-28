@@ -2,7 +2,8 @@
 
 ## **Exercises answered**
 
+* [Eloquent Javascript](https://github.com/braziljs/eloquente-javascript) - **Second Edition**
+
 ```
 eloquente/
-* [Eloquent Javascript](https://github.com/braziljs/eloquente-javascript) - **Second Edition**
 ```
