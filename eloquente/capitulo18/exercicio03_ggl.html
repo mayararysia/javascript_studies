@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+    <body>
+        <div id="grid"></div>
+        <button id="next">Next generation</button>
+
+        <script>
+
+            (function () {
+
+                    'use strict';
+                    var columns = 20, lines = 10;
+
+                    var $div = document.getElementById('grid');//gridNode
+                
+                    var $checkboxes = [];
+                    var $button = document.getElementById('next');
+
+                    for (var line= 0; line < lines; line++) {
+                        for (var column = 0; column < columns; column++) {
+                            var $input = document.createElement("input");
+                            $input.type = "checkbox";
+                            $div.appendChild($input);
+                            $checkboxes.push($input);
+                        }
+                        $div.appendChild(document.createElement("br"));
+                    }
+
+                    function checkboxes(array) {
+                        return array.forEach(function(element, index) { 
+                            $checkboxes[index].checked = element;
+                        });
+                    }
+
+                    function divOfCheckboxes() {
+                        return $checkboxes.map(function(input) { 
+                            return input.checked; 
+                        });
+                    }
+
+                    function count(grid, x, y) {
+                        var count = 0;
+                        var line = Math.max(0, y - 1);
+                        var column = Math.max(0, x - 1);
+
+                        for (; line <= Math.min(lines - 1, y + 1); line++) {
+                        for (; column <= Math.min(columns - 1, x + 1); column++)
+                            if ((column != x || line != y) && grid[column + line * columns]) count++;
+                        }
+                        return count;
+                    }
+
+                    function random() {
+                        var array = [];
+                        var i = 0;
+                        while(i < columns * lines){
+                            if(Math.random() < 0.5) array.push(true);
+                            else array.push(false);
+                            i++;
+                        }
+                        return array;
+                    }
+                    
+                    checkboxes(random());
+
+                    function next(grid) {
+                        var newGrid = new Array(columns * lines);
+                        for (var line = 0; line < lines; line++) {
+                        for (var column = 0; column < columns; column++) {
+                            var neighbors = count(grid, column, line);
+                            var position = column + line * columns;
+                            if (neighbors < 2 || neighbors > 3) newGrid[position] = false;
+                            else{
+                                if ((neighbors == 2 || neighbors == 3) && grid[position] == true) newGrid[position] = grid[position];
+                                else newGrid[position] = true;
+                            }            
+                        }
+                        }
+                        return newGrid;
+                    }
+                    $button.addEventListener("click", function(){
+                       checkboxes(next(divOfCheckboxes()));
+                    });
+            })();
+            
+        </script>
+    </body>
+</html>
