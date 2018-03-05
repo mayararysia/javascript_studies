@@ -1,0 +1,54 @@
+<!doctype html>
+<link rel="stylesheet" href="css/paint.css">
+<script src="js/paint.js"></script>
+
+<script>
+    /*exercício01*/
+
+    tools.Rectangle = function(event, cx) {
+      console.log("tools.Rectangle");
+      var $div = document.createElement("div");
+      var relative = relativePos(event, cx.canvas);
+      var start = {
+        x: event.pageX, 
+        y: event.pageY
+      };
+      
+      $div.style.position = "absolute";
+      $div.style.background = cx.fillStyle;
+      window.document.body.appendChild($div);
+
+      function onMove(event) {
+          var draw = findRect(start,
+            {
+              x: event.pageX, 
+              y: event.pageY
+            });
+
+          $div.style.top = draw.top + "px";
+          $div.style.left = draw.left + "px";
+          $div.style.width = draw.width + "px";
+          $div.style.height = draw.height + "px";
+      }
+
+      function onEnd(event) {
+        var draw = findRect(relative, relativePos(event, cx.canvas));
+        cx.fillRect(draw.top, draw.left, draw.width, draw.height);
+        window.document.body.removeChild($div);
+      }
+
+      function findRect(a, b) {
+        return {          
+          top: Math.min(a.y, b.y),
+          left: Math.min(a.x, b.x),
+          width: Math.abs(a.x - b.x),
+          height: Math.abs(a.y - b.y)
+        };
+      }
+
+      trackDrag(onMove, onEnd);
+    };
+</script>
+<body>
+    <script>createPaint(document.body);</script>
+</body>
