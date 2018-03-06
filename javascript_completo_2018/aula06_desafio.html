@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Curso Javascript Completo 2018 - DESAFIO</title>
+	    <meta charset="utf-8">
+	</head>
+	<body>
+        <h1>DESAFIO</h1>
+        <main class="cmain" id="idmain">
+            <h2>subtitulo</h2>
+            <p id="pmain" class="pmain">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
+        </main> 
+     
+        
+        <section class="csection" id="idsection">
+            <h3>subtitulo</h3>
+            <p class="paragrafos">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
+            <p class="paragrafos">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
+        </section>
+        
+        <script>
+
+        	(function(){
+        		'use strict';
+        		var nome = prompt('Seu nome: ');
+
+        		var paragrafos = document.querySelectorAll('p');
+                
+                console.log(paragrafos);
+                var x = 0;
+                while(paragrafos[x]){
+                    paragrafos[x].textContent = "Parágrafo "+ (x+1) + ': Essa página foi hackeada por '+nome;
+                    x++;
+                }
+        	})();
+
+            //document.querySelector('h1').textContent = 'Paragrafo alterado via JS';
+        </script>
+        
+    </body>
+</html>
+
+</html>
