@@ -2,9 +2,9 @@
 
 ## **Exercises answered**
 
-*[Eloquent Javascript](https://github.com/braziljs/eloquente-javascript) - **Second Edition** - **book**
+*	[Eloquent Javascript](https://github.com/braziljs/eloquente-javascript) - **Second Edition** - **book**
 
-*[javascript-complete-2018-beginner-to-master](https://www.udemy.com/javascript-completo-2018-do-iniciante-ao-mestre/) **course**
+*	[javascript-complete-2018-beginner-to-master](https://www.udemy.com/javascript-completo-2018-do-iniciante-ao-mestre/) **course**
 
 
 
