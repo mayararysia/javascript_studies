@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Curso Javascript Completo 2018</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1>Curso Javascript Completo 2018 - aula13</h1>
+        
+        <script>
+            /*método every recebe por parâmetro uma função que faz teste 
+            em cada um dos elementos e retorna true ou false.*/
+
+            var arr = ['1',20,3,4,5, 'kjkl', 20, "30"];
+
+            var sohNumeros = arr.every(function(el){
+            	return typeof el === 'number';
+            });
+
+            console.log(sohNumeros);
+
+            /*verifica se pelo menos um índica é número*/
+            var aoMenosUmNumero = arr.some(function(el){
+            	return typeof el === 'number';
+            });
+
+            console.log(aoMenosUmNumero);
+
+            var numeros = arr.filter(function(el, i, arr){
+            	return typeof el === 'number';
+            });
+
+            console.log(numeros);
+
+            arr.forEach(function(el, i, arr){
+            	console.log('el=', el, ' | i=', i, ' | i - ', arr.toString());
+            });
+
+            var posicaoStr1 = arr.indexOf('kjkl', 6);//se não encontra retorna -1
+            console.log('posicaoStr1: ', posicaoStr1);
+
+            var posicaoStr2 = arr.indexOf(20,5);//se não encontra retorna -1
+            console.log('posicaoStr2: ', posicaoStr2);
+            
+            var posicaoStr3 = arr.lastIndexOf(20, 5);//se não encontra retorna -1
+            console.log('posicaoStr3: ', posicaoStr3);
+
+            /*map: itera sob cada elemento do array e faz alguma alteração*/
+            numeros = numeros.map(function(el,  i, arr){
+            	return el * i;
+            });
+
+            console.log(numeros);
+
+            /*concat: serve pra juntar arrays*/
+            var arr2 = arr.concat(numeros, 'olá', 'string', 100);
+            console.log(arr2);
+
+            /*join() transforma um array em uma string*/
+            var str = arr2.join(' -- ');
+            console.log(str);
+
+            /*push: inclui item no array*/
+            arr.push('novo item', 'item');
+            console.log(arr);
+
+            /*pop: remove o último item e devolve pra quem chamou*/
+            var ultimoItem = arr.pop();
+            console.log(ultimoItem);
+            console.log(arr);
+
+            /*shift: remove o primeiro*/
+            var primeiroItem = arr.shift();
+            console.log(primeiroItem);
+            console.log(arr);
+
+            /*unshift: parecido com o método push, mas acrescenta o item no início.*/
+            arr.unshift(true,  false, 'unshift');
+            console.log(arr);
+
+            numeros.shift();
+            /*reduce: serve para pegar um array e retornar um único valor.*/
+            var somaDeArr = numeros.reduce(function(anterior, atual, indice){
+            	console.log('anterior', anterior, ' | atual', atual, ' | indice', indice);
+            	return anterior + atual + indice;
+            }, 1);
+
+            console.log(numeros);
+            console.log(somaDeArr);
+
+            var testeReduce = ['1', '2' , '3'].reduce(function(inicial, atual){
+            	return inicial + atual;
+            });
+            console.log(testeReduce);
+            //inverte os valores
+            var testeReduce = ['1', '2' , '3'].reduceRight(function(inicial, atual){
+            	return inicial + atual;
+            });
+            console.log(testeReduce);
+
+            /*reverse: inverte ordem dos array*/
+            console.log([10, 20, 30].reverse());
+
+            /*slice: retorna um pedaço de um array e não modifica o array original*/
+            console.log(arr2.slice(2, 5)); //posição 2
+
+            /*splice: é flexível*/
+            //posicao, segundo parâmetro quantidade de elemento que quer remover
+            //terceiro parâmetro: elementos que quer incluir no array
+            console.log('--------')
+            console.log("original: ", arr2);
+            var arr3 = arr2.splice(2,3, 'limão', 'melão');
+            console.log("modificada", arr2);
+            console.log("removidos", arr3);
+            
+            /*spread operator:
+                quando passa um array os parâmetros são passados pra dentro da função.
+                
+                calcularMedia(...[2,3]);
+            */
+
+        </script>
+        
+    </body>
+</html>
