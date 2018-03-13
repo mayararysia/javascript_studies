@@ -17,15 +17,10 @@ http.createServer(function(request, response) {
     );
   function respond(code, body, type) {
     if (!type) type = "text/plain; charset=utf-8";
-   
-
- 
-    if (body && body.pipe) {
-        body.pipe(response);
-    }
+    if (body && body.pipe) body.pipe(response);
     else {
         response.write(
-               body  + '<br>' + 'outra coisa'+'<br>' 
+               body
         );       
     }
   }
@@ -34,9 +29,7 @@ http.createServer(function(request, response) {
 }).listen(8000);
 
 function urlToPath(url) {
-    console.log("url: ", url);
   var path = require("url").parse(url).pathname;
-  console.log("path: ",  path );
   return "." + decodeURIComponent(path);
 }
 
@@ -46,14 +39,11 @@ methods.GET = function(path, respond) {
     else if (error) respond(500, error.toString());
     else if (stats.isDirectory())
       fs.readdir(path, function(error, files) {
-        if (error)
-          respond(500, error.toString());
-        else
-          respond(200, files.join("\n"));
+        if (error) respond(500, error.toString());
+        else respond(200, files.join("\n"));
       });
-    else{
-        console.log("path: ",  path );
-      respond(200, fs.createReadStream(path), require("mime").lookup(path)); }
+    else
+      respond(200, fs.createReadStream(path), require("mime").lookup(path)); 
   });
 };
 
@@ -81,7 +71,6 @@ methods.PUT = function(path, respond, request) {
   outStream.on("finish", function() {
     respond(204);
   });
-  console.log("outStream ",  outStream );
   request.pipe(outStream);
 };
 
