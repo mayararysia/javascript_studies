@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Curso Javascript Completo 2018 - DESAFIO</title>
+        <meta charset="utf-8">
+        
+        <script>
+
+            (function(){
+                'use strict';
+                var minhaData = new Date();
+                var padraoBR = [];
+
+                function formataData(data){
+                    var dia = minhaData.getDate() < 10 ? '0' + minhaData.getDate() : minhaData.getDate();
+
+                    var mes = minhaData.getMonth() + 1 ;
+                    
+                    mes = mes < 10 ? '0' + mes : mes;
+
+                    padraoBR.unshift(dia+'/'+mes+'/'+minhaData.getFullYear());
+                }
+
+                formataData(minhaData);
+                console.log(padraoBR);
+
+            })();
+        </script>
+        
+    </head>
+    <body>
+        <h1>Curso Javascript Completo 2018 - DESAFIO AULA 14 -</h1>
+    </body>
+</html>
