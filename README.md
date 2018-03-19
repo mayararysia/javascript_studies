@@ -13,10 +13,10 @@ eloquente/
 
 javascript_completo_2018/
 
-```
+``` 
 
 
-#Note:
+## **Note:**
 
 * **Chapter 21 of the book Eloquent** , it is necessary to have the [Node](https://nodejs.org/en/) installed on the machine and run at the command prompt:
 
