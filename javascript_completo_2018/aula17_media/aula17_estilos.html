@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Javascript Completo 2018</title>
+        <meta charset="utf-8">
+        
+        <style type="text/css">
+
+            .teste{
+                background: red;
+            }
+
+	    </style>
+        
+    </head>
+    <body>
+       
+       <div class="teste">apenas um teste</div>      
+       
+        <h1>Javascript Completo 2018</h1>
+
+         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, ipsa. Repellendus suscipit aliquam amet deserunt similique minus quia, ipsum sit nulla sapiente corrupti hic alias, atque commodi libero, sed sint!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, ipsa. Repellendus suscipit aliquam amet deserunt similique minus quia, ipsum sit nulla sapiente corrupti hic alias, atque commodi libero, sed sint!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, ipsa. Repellendus suscipit aliquam amet deserunt similique minus quia, ipsum sit nulla sapiente corrupti hic alias, atque commodi libero, sed sint!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, ipsa. Repellendus suscipit aliquam amet deserunt similique minus quia, ipsum sit nulla sapiente corrupti hic alias, atque commodi libero, sed sint!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, ipsa. Repellendus suscipit aliquam amet deserunt similique minus quia, ipsum sit nulla sapiente corrupti hic alias, atque commodi libero, sed sint!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, ipsa. Repellendus suscipit aliquam amet deserunt similique minus quia, ipsum sit nulla sapiente corrupti hic alias, atque commodi libero, sed sint!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, ipsa. Repellendus suscipit aliquam amet deserunt similique minus quia, ipsum sit nulla sapiente corrupti hic alias, atque commodi libero, sed sint!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, ipsa. Repellendus suscipit aliquam amet deserunt similique minus quia, ipsum sit nulla sapiente corrupti hic alias, atque commodi libero, sed sint!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, ipsa. Repellendus suscipit aliquam amet deserunt similique minus quia, ipsum sit nulla sapiente corrupti hic alias, atque commodi libero, sed sint!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, ipsa. Repellendus suscipit aliquam amet deserunt similique minus quia, ipsum sit nulla sapiente corrupti hic alias, atque commodi libero, sed sint!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, ipsa. Repellendus suscipit aliquam amet deserunt similique minus quia, ipsum sit nulla sapiente corrupti hic alias, atque commodi libero, sed sint!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, ipsa. Repellendus suscipit aliquam amet deserunt similique minus quia, ipsum sit nulla sapiente corrupti hic alias, atque commodi libero, sed sint!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, ipsa. Repellendus suscipit aliquam amet deserunt similique minus quia, ipsum sit nulla sapiente corrupti hic alias, atque commodi libero, sed sint!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, ipsa. Repellendus suscipit aliquam amet deserunt similique minus quia, ipsum sit nulla sapiente corrupti hic alias, atque commodi libero, sed sint!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, ipsa. Repellendus suscipit aliquam amet deserunt similique minus quia, ipsum sit nulla sapiente corrupti hic alias, atque commodi libero, sed sint!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, ipsa. Repellendus suscipit aliquam amet deserunt similique minus quia, ipsum sit nulla sapiente corrupti hic alias, atque commodi libero, sed sint!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, ipsa. Repellendus suscipit aliquam amet deserunt similique minus quia, ipsum sit nulla sapiente corrupti hic alias, atque commodi libero, sed sint!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, ipsa. Repellendus suscipit aliquam amet deserunt similique minus quia, ipsum sit nulla sapiente corrupti hic alias, atque commodi libero, sed sint!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, ipsa. Repellendus suscipit aliquam amet deserunt similique minus quia, ipsum sit nulla sapiente corrupti hic alias, atque commodi libero, sed sint!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, ipsa. Repellendus suscipit aliquam amet deserunt similique minus quia, ipsum sit nulla sapiente corrupti hic alias, atque commodi libero, sed sint!</p>
+    
+        <div class="teste2">TESTE 2</div>
+        <script>
+            var $teste = document.querySelector('.teste');
+            console.log('bg: ', $teste.style.background);
+            //style : recupera ou define estilos inline
+            console.log('computado: ', getComputedStyle($teste).background);
+
+            var $p = document.querySelector('p');
+            console.log($p.offsetHeight, $p.offsetWidth);//altura e largura do parágrafo
+            console.log($p.offsetLeft, $p.offsetTop);
+
+            var $teste2 = document.querySelector('.teste2');
+            console.log($teste2.off$teste2setHeight, $teste2.offsetWidth);
+            /*getBoundingClientRect(): retorna as informações relativas àquele elemento
+            no espaço da viewport e não mais no documento.*/
+            console.log($teste.getBoundingClientRect());
+        </script> 
+    </body>
+</html>
