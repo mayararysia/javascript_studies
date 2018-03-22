@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Javascript Completo 2018</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+   
+        <h1>Javascript Completo 2018 - aula 19</h1>
+
+        <script>
+           //module pattern
+           /*proteger o escopo global
+            que é responsável por armazenar as variáveis
+           */
+           var beluga = {
+                number: {
+                    value: 0,
+                    add: function(n){
+                       this.value += n;
+                    },
+                    log: function(n){
+                        console.log(this.value);
+                    }
+                }
+           }
+           //reveal pattern
+           var beluga2 = (function(){
+                var n = 0;
+
+                function isNumber(_n){
+                    return typeof _n === 'number';
+                }
+
+                function _add(_n){
+                    if(isNumber(_n)){
+                        n += _n;
+                    }
+                }
+                function _log(){
+                    console.log(n);
+                }
+
+                return {
+                    add: _add,
+                    log: _log
+                }
+           })();
+
+        </script> 
+    </body>
+</html>

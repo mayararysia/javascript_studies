@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Javascript Completo 2018</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+   
+        <h1>Javascript Completo 2018 - aula 19</h1>
+
+        <script>
+           (function(){
+               'use strict';
+
+               function foo(str){
+                    console.log('foo', str);
+               }
+
+               function executa(cb){
+                    var ola = 'mundo';
+                    if(cb && typeof cb === 'function') cb(ola);
+               }
+
+               executa(foo);
+
+               executa(function teste(){
+                    console.log('anonima');
+               })
+
+               document.addEventListener('click', function clicou(){
+                    console.log('clicou');
+               });
+           })();
+        </script> 
+    </body>
+</html>

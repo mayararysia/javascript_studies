@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Javascript Completo 2018</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+   
+        <h1>Javascript Completo 2018 - aula 19</h1>
+
+        <script>
+            //let não tem comportamento de hoisting
+            //let e const - escopo de bloco
+            //var - escopo de função
+           (function(){
+                'use strict';
+
+                var nome = "Daniel";
+
+                function mostraNome(){
+                    console.log(nome);
+                    var nome = "Luciane";
+
+                    var testeHoisting = function(){
+                        return 'funfou';
+                    }
+
+                    console.log('-------');
+                    console.log(testeHoisting());                   
+                }
+
+                mostraNome();
+           })();
+        </script> 
+    </body>
+</html>
