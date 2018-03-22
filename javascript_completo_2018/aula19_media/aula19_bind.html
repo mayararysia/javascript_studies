@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Javascript Completo 2018</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+   
+        <h1>Javascript Completo 2018 - aula 19</h1>
+
+        <script>
+           
+                /*através do bind posso mudar o escopo de this, a diferença
+                entre o bind e o apply é que o bind muda o contexto de this na hora que chama a função,
+                já o call e o apply o programador muda o escopo de this no momento de invocar.*/
+
+                function teste(){
+                    console.log(this);
+                }
+                var teste2 = teste.bind('Olá, mundo');
+                document.addEventListener('click', teste2);
+        </script> 
+    </body>
+</html>

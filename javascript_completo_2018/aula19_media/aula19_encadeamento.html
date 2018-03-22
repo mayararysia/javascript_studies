@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Javascript Completo 2018</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+   
+        <h1>Javascript Completo 2018 - aula 19</h1>
+
+        <script>
+            var obj = {
+                value: 1,
+                add: function(n){
+                    this.value += n;
+                    return this;
+                },
+                log: function(){
+                    console.log(this.value);
+                    return this;
+                }
+            }
+
+            function Add(){
+                this.value = n || 0;
+                this.add = function(n){
+                    this.value += n;
+                    return this;
+                }
+                this.log = function(){
+                    console.log(this.value);
+                    return this;
+                }
+            }
+        </script> 
+    </body>
+</html>
