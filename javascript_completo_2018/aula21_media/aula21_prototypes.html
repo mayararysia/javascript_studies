@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Curso Javascript Completo 2018</title>
+        <meta charset="utf-8">   
+    </head>
+    <body>
+        <h1>Curso Javascript Completo 2018</h1>    
+    </body>    
+    <script>               
+        
+        function Animal(tipo){
+            if(tipo) this.tipo = tipo;
+            /*this.tipo = tipo;
+            this.obtemTipo = function(){
+                console.log('o tipo é' + this.tipo);
+                return this.tipo;
+            }*/
+        }
+        
+        var cachorro = new Animal('mamifero');
+        var gato = new Animal('mamifero');        
+        var peixe = new Animal();
+        
+        console.log(cachorro, gato);
+        //colocou um a função no protótipo do objeto animal:
+        Animal.prototype.obterTipo = function(){
+            return this.tipo;
+        }
+        
+        Animal.prototype.tipo = 'desconhecido';
+        
+        console.log(cachorro, gato, peixe);       
+        //arguments: propriedade dentro da função que tem acesso a todos os parâmetros
+        function teste(){
+            console.log(arguments);
+            //o this é o próprio arguments:
+            Array.prototype.forEach.call(arguments,
+                function(argument){
+                    console.log('argumento: ' + argument);
+                }
+            );
+        }
+        teste('ola', 'mundo', 2, false);            
+    </script>
+</html>
