@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Curso Javascript Completo 2018 - Static</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1>Curso Javascript Completo 2018 - Static</h1>      
+        
+    </body>
+    
+    <script>
+        /*ES5*/
+        function ContaBancaria(cliente, numero){
+            this. cliente = cliente;
+            this.numero = numero;
+        }
+        
+        function ContaCorrente(cliente, numero){
+            //ContaBancaria.call(this, cliente, numero)
+            //this.constructor = ContaCorrente;
+        }
+        ContaCorrente.juros = 15;//static
+        ContaCorrente.prototype.teste = 'testanto prototype';//faz parte das instâncias
+        
+        ContaCorrente.verTipo = function(){
+            return "testando static method";
+        }
+        
+        function ContaPoupanca(cliente, numero){
+            ContaBancaria.call(this, cliente, numero);
+            
+            //privado
+            const aniversario = new Date().getTime();            
+            //público
+            this.pegaNiver = function(){
+                return aniversario;
+            }
+        }
+        
+        var cp = new ContaPoupanca('maria', 2);
+        Object.setPrototypeOf(cp, new ContaBancaria());        
+        var cc = new ContaCorrente('daniel', 3);
+    </script>
+</html>

@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Curso Javascript Completo 2018 - aula 22</title>
+        <meta charset="utf-8">               
+    </head>
+    <body>
+        <h1>Curso Javascript Completo 2018- aula 22</h1>
+    </body>
+    
+    <script>               
+        /*coesão: vantagem do oop*/
+        //abordagem estruturada - dados e funções são independentes:
+        var aluno = {
+            nome: 'daniel',
+            notas: [5,6,4,8];
+        }
+        
+        function pegaNotaMedia(notas){
+            return media;
+        }
+        
+       
+        pegaNotaMedia(aluno.notas);
+        
+        //Orientação a Objetos:
+        var aluno = {
+            nome: 'daniel',
+            notas: [5,6,4,8],
+            pegaNotaMedia(){
+                return this.notas //retorna o que já está dentro do próprio objeto
+            }
+        }
+        aluno.pegaNotaMedia() //retorna a média
+    </script>
+</html>

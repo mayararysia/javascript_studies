@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Curso Javascript Completo 2018 - aula 22</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1>Curso Javascript Completo 2018 - aula 22 - Modificadores</h1>
+    </body>
+    
+    <script>
+        //não alterar a propriedade objeto
+        //ES2015 ou ES6:
+        function ContaBancaria(cliente, numero){
+            this. cliente = cliente;
+            this.numero = numero;
+        }
+        
+        function ContaCorrente(cliente, numero){
+            //ContaBancaria.call(this, cliente, numero)
+            //this.constructor = ContaCorrente;
+        }
+        
+        function ContaPoupanca(cliente, numero){
+            ContaBancaria.call(this, cliente, numero);
+            
+            //const : privado
+            const aniversario = new Date().getTime();
+            
+            //this: público
+            this.pegaNiver = function(){
+                return aniversario;
+            }
+        }
+        
+        var cp = new ContaPoupanca('maria', 2);
+        Object.setPrototypeOf(cp, new ContaBancaria());
+
+        //a cp herda de uma nova contaBancaria;
+        
+      
+    </script>
+</html>
