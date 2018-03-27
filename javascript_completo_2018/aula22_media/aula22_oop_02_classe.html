@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Curso Javascript Completo 2018 - aula 22</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1>Curso Javascript Completo 2018 - aula 22</h1>      
+    </body>
+    
+    <script>               
+        //ES5: uma classe que gera outros objetos.
+        function ContaCorrente(cliente, numero){
+            //'use strict';
+            if(this instanceof ContaCorrente){
+                this.cliente = cliente;
+                this.numero = numero;
+            } else {
+                //throw new Error('ContaCorrente só pode ser utilizada com o operador new');
+                return new ContaCorrente(cliente, numero);
+            }
+        }
+        
+        //ES6: outra sintaxe para criar as funções contrutoras.
+        class ContaPoupanca{
+            //constructor: a função que será chamada quando instaciar um objeto ContaPoupanca;
+            constructor(cliente, numero){
+                this.cliente = cliente;
+                this.numero = numero;
+            }
+        }
+        /*No console:
+
+        let cp = new ContaPoupanca()
+        let cc = new ContaCorrente("daniel", 1);
+        let cc = new ContaCorrente("maria", 2);*/
+    </script>
+</html>

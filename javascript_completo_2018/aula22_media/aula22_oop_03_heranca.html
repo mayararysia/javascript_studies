@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Curso Javascript Completo 2018 - aula 22</title>
+        <meta charset="utf-8">        
+    </head>
+    <body>
+        <h1>Curso Javascript Completo 2018 - aula 22</h1>      
+        
+    </body>
+    
+    <script>
+        
+        function ContaBancaria(cliente, numero){
+            this. cliente = cliente;
+            this.numero = numero;
+        }
+        
+        function ContaCorrente(cliente, numero){
+            ContaBancaria.call(this, cliente, numero);
+            this.constructor = ContaCorrente;
+        }
+        
+        ContaCorrente.prototype = new ContaBancaria();
+
+        let cc = new ContaCorrente();
+        let cb = new ContaBancaria('daniel', 1);
+
+        Object.setPrototypeOf(cc, cb);
+
+        console.log(cc);     
+    </script>
+</html>

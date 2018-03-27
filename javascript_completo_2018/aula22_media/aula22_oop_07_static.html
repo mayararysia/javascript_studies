@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Curso Javascript Completo 2018</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1>Curso Javascript Completo 2018 - Static</h1> 
+        
+    </body>
+    
+    <script>
+        /*Static:
+        São métodos e propriedades que não fazem parte dos dados daquele
+        objeto.*/
+        class ContaBancaria{
+            constructor(cliente, numero){
+                this.cliente = cliente;
+                this.numero = numero;
+                this.saldo = 0;
+            }
+            
+            depositar(valor){
+                this.saldo += valor;
+            }
+        }
+        
+        class ContaCorrente extends ContaBancaria{
+            constructor(cliente, numero){
+                super(cliente, numero);
+                this.limite = 1000;
+                
+            }             
+            
+            //taxa de juros não depende dos dados da conta
+            //static só pode ser colocado em métodos
+            static get juros() { return 15; };
+            
+            static verTipo(){
+                return 'tipo conta corrente';
+            }
+            
+        }
+        
+        class ContaPoupanca extends ContaBancaria{
+            
+            constructor(cliente, numero){
+                super(cliente, numero);
+                //this._aniversario = new Date().getTime();
+                this._aniversario = {};
+                Object.defineProperty(this._aniversario, 'data', {
+                    enumerable: false,
+                    writable: false,
+                    value: new Date().getTime()
+                });
+            }
+                                
+            get aniversario(){ 
+                return this._aniversario; 
+            }
+            
+            set aniversario(novaData){ };
+                        
+        }
+        
+        var cp = new ContaPoupanca('maria', 2);
+        var cc = new ContaCorrente('daniel', 3);
+
+        console.log(ContaCorrente.verTipo());
+            
+    </script>
+</html>

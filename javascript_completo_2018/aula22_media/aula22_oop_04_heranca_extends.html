@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Curso Javascript Completo 2018 - aula 22</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1>Curso Javascript Completo 2018 - aula 22</h1>   
+        
+    </body>
+    
+    <script>
+        //ES6
+        class ContaBancaria{
+            constructor(cliente, numero){
+                this.cliente = cliente;
+                this.numero = numero;
+                this.saldo = 0;
+                //this: será instância de contaCorrente
+            }
+            
+            depositar(valor){
+                this.saldo += valor;
+            }
+        }
+        
+        class ContaCorrente extends ContaBancaria{
+            /*super(): construtor do pai ContaBancaria*/
+            constructor(cliente, numero){
+                super(cliente, numero);
+                this.limite = 1000;
+            } 
+        }
+        
+        class ContaPoupanca extends ContaBancaria{
+            constructor(cliente, numero){
+                super(cliente, numero);
+                this.aniversario = new Date();
+            }
+        }
+        
+        let cc = new ContaCorrente('daniel', 2);
+        let cb = new ContaBancaria('daniel', 1);
+
+        //Object.setPrototypeOf(cc, cb);
+        //cc tem o mesmo protótipo da conta bancária 
+
+        cc.depositar(1000);
+        console.log(cc.saldo);
+        
+        let cp = new ContaPoupanca('maria', 3);
+        console.log(cp.aniversario);
+        
+            
+    </script>
+</html>

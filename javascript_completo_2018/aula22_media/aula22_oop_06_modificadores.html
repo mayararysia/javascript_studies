@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Curso Javascript Completo 2018</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1>Curso Javascript Completo 2018 - Modificadores</h1>      
+        
+    </body>
+    
+    <script>
+        //construtor
+        class ContaBancaria{
+            constructor(cliente, numero){
+                this.cliente = cliente;
+                this.numero = numero;
+                this.saldo = 0;
+            }
+            //método
+            depositar(valor){
+                this.saldo += valor;
+            }
+        }
+        
+        class ContaCorrente extends ContaBancaria{
+            constructor(cliente, numero){
+                super(cliente, numero);
+                this.limite = 1000;
+            } 
+        }
+        
+        class ContaPoupanca extends ContaBancaria{
+            constructor(cliente, numero){
+                super(cliente, numero);                
+                //público
+                //this.aniversario = new Date();                
+                const aniversario = new Date().getTime();                
+                //fake private (convenção)
+                this._aniversario = Date.now();
+                
+                this.getNiver = function(){
+                    return aniversario;
+                }                
+            }
+            
+            //getter: fora do construtor
+            //são métodos interceptadores
+            get aniversario(){
+                console.log('pegando aniversário');
+                return this._aniversario;
+            }
+            set aniversario(novaData){
+                console.log('setando aniversário', novaData);
+                this._aniversario = novaData;
+            }
+            
+           
+        }
+        
+        let cc = new ContaCorrente('daniel', 2);
+        
+        cc.depositar(1000);
+        console.log(cc.saldo);
+        
+        let cp = new ContaPoupanca('maria', 3);
+        console.log(cp.aniversario);
+        
+            
+    </script>
+</html>
