@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Aula24 - Curso Javascript Completo 2018</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1>Curso Javascript Completo 2018</h1>
+        <h2>XMLHttpRequest</h2>
+        <h3>Para trabalhar com AJAX é necessário trabalhar com servidor.</h3>        
+    </body>
+    
+    <script>
+        /*para trabalhar com ajax é preciso ter uma instância do
+        XMLHttpRequest()*/
+
+        let xhr = new XMLHttpRequest();
+        
+        //abrir a comunicação:
+        xhr.open("GET", "aula24_alunos.json");
+        xhr.send(null);//só quero obter dados por isso passo null
+        xhr.onreadystatechange = verificaAjax;
+        //onreadystatechange: serve para saber quando a resposta está finalizada. Quando mudar o status da requisição
+        
+        function verificaAjax(){
+            console.log(xhr.readyState);
+            console.log(xhr.status);
+            
+            if(xhr.readyState === 4){                
+                if(xhr.status === 200 || xhr.status === 304){
+                    console.log(xhr.responseText);
+                    let resposta = xhr.responseText;                  
+                    resposta = JSON.parse(resposta);
+                    //json.parse: transforma a string em dados/objeto
+                    console.log(resposta[0]);
+                } else {
+                    alert('Erro na resposta!');
+                    console.log(xhr);
+                } 
+            }
+        }
+    </script>    
+</html>
