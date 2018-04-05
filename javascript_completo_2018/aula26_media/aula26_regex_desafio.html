@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+    <head>
+         <title>Aula 26 - Curso Javascript Completo 2018</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1>Curso Javascript Completo 2018</h1>
+        <h2>REGEX</h2>      
+        
+        <input type="text" id="text">
+        <button id="btn" disabled="disable">valida</button>
+    </body>
+    
+    <script>
+        
+        (function(){
+            var $text = document.querySelector('#text');
+            var $btn = document.querySelector('#btn');
+            
+            var padraoCPF = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
+            var padraoEmail = /^[\w._-]+@[\w_.-]+\.[\w]{2,}/i;
+            
+            $text.addEventListener('input', function(){
+                var texto = this.value;            
+                $btn.disabled = !(padraoCPF.test(texto) || padraoEmail.test(texto));
+            });
+        })(); 
+        
+    </script>
+    
+</html>

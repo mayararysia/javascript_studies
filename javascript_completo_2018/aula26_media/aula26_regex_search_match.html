@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+    <head>
+         <title>Aula 26 - Curso Javascript Completo 2018</title>
+        <meta charset="utf-8">                
+    </head>
+    <body>
+        <h1>Curso Javascript Completo 2018</h1>
+        <h2>REGEX</h2>
+    </body>
+    
+    <script>
+
+        var str = 'hoje é 26/02/2018 e amanhã será 27/02/18. Meu aniversásrio é 1/01';
+        var regex = /\d{1,2}/g;
+        //expressão que busca por dígitos uma ou duas vezes            
+        var teste = str.match(regex);
+        //var teste = str.search(regex);
+        //search - mostra a posição
+        /*
+        Sem a flag 'g'
+        match - retorna como se fosse um array contendo o primeiro índice - o que buscou, input - a string original, mas length só tem 1.
+        para acessar as propriedades:
+        teste.index
+        teste.input
+
+        com a tag g, o retorno do match é um array com os
+        dígitos da busca em cada índice*/        
+    </script>
+</html>

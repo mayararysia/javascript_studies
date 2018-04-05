@@ -1,0 +1,20 @@
+{
+  "name": "talks",
+  "version": "1.0.0",
+  "description": "projeto do capítulo 21 - livro eloquente",
+  "main": "router.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ecstatic": "^3.2.0"
+  },
+  "licenses": [
+    {
+              "type": "MIT",
+              "url": "http://opensource.org/licenses/MIT"
+    }
+  ]
+}
