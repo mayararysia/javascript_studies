@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Aula 26 - Curso Javascript Completo 2018</title>
+        <meta charset="utf-8">        
+    </head>
+    <body>
+        <h1>Curso Javascript Completo 2018</h1>
+        <h2>REGEX</h2>
+    </body>
+    
+    <script>
+        var str = window.location.href;    
+        var regex = /[&?](\w+)=(\w+)/g;    
+        var arr, parametros = {};
+
+        while(arr = regex.exec(str)){        
+            parametros[arr[1]] = arr[2];
+        }
+        console.log(parametros);
+    </script>    
+</html>

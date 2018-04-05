@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+    <head>
+         <title>Aula 26 - Curso Javascript Completo 2018</title>
+        <meta charset="utf-8">        
+    </head>
+    <body>
+        <h1>Curso Javascript Completo 2018</h1>
+        <h2>REGEX</h2>
+    </body>
+    
+    <script>
+
+        var str = 'hoje é 26/02/2018 e amanha será 27/02/18. Meu aniversario é 1/01';
+        var meses = [ 'jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'];
+            
+        function formatData(str){
+            //?: -> no capturing group, não captura . Não tem acesso a ele no JS
+            var regex = /(\d{1,2})\/(\d{1,2})(?:\/(\d{2,4}))?/g;
+            //replace não altera a string original
+            return str.replace(regex, function(a,b,c,d,e,f){                    
+                var dia = b + ' de ' + meses[parseInt(c) - 1];
+                dia += (d) ? ' de ' + d : '';
+                return dia;
+            });
+        }
+        str = formatData(str);            
+        console.log(str);
+    </script>    
+</html>

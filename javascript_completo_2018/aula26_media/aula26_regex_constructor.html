@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Aula 26 - Curso Javascript Completo 2018</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1>Curso Javascript Completo 2018</h1>
+        <h2>REGEX</h2>  
+    </body>
+    
+    <script>
+        var testeRegex = 'abc';
+        var str = 'procurando texto abc neste parágrafo. Abc encontrado';            
+        var regex = new RegExp(testeRegex, 'gi');
+            
+        console.log(regex.exec(str));
+        console.log(regex.exec(str));
+        console.log(regex.exec(str));
+    </script>
+    
+</html>

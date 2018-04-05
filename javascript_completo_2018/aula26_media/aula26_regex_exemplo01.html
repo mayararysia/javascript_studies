@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Aula 26 - Curso Javascript Completo 2018</title>
+        <meta charset="utf-8">            
+        
+    </head>
+    <body>
+        <h1>Curso Javascript Completo 2018</h1>
+        <h2>REGEX</h2>       
+    </body>
+    
+    <script>
+        //verifica se cep está dentro de um padrão
+        var cep = '01234-050';            
+        // g - global
+        // i - case sensitive
+        // m - multiline        
+        function isValidCEP(str){
+            var regex = /\d{5}-\d{3}/gi;
+            return regex.test(str);
+        }
+    </script>
+</html>
