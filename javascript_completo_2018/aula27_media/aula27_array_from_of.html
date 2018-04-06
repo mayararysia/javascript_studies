@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Curso Javascript Completo 2018</title>
+        <meta charset="utf-8">        
+    </head>
+    <body>
+        <h1>Curso Javascript Completo 2018</h1>      
+        <h2>ESNext</h2>
+        <h2>teste</h2>
+        <h2>teste</h2>
+        <h2>teste</h2>        
+    </body>    
+    <script>
+        /*
+         ES6, ECMAScript 6, ou ES2015:
+
+            Array.from:
+            
+            serve para criar um array a partir de outro objeto iterável.
+            É uma forma de uma cópia. Criar um objeto a partir de um array like. Array like é um objeto que parece array mas não é.
+
+
+            Array.of - novo método do EcmaScript2015:
+
+            a única diferença do new Array é quando passa números inteiros
+            para dentro do método
+            a diferença é que inteiro para array cria 3 índices vazios.
+            O objeto construtor Array não lida muito bem com números inteiros.
+            e o Array.of veio para consertar esse problema.
+        */
+        var arr = new Array(3);
+        var arr2 = Array.of(3);
+        console.log(arr);
+        console.log(arr2);
+        
+        var arr3 = Array.from(arr2);
+        
+        var titles = document.querySelectorAll('h2');//coleção de objetos mas não é um array
+        var arrTitles = Array.from(titles);//cria um array onde cada elemento do array é título de h2        
+        console.log(titles);
+        console.log(arrTitles);   
+    </script>
+</html>

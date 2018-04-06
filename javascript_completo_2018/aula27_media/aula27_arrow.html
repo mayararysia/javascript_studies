@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Curso Javascript Completo 2018</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1>Curso Javascript Completo 2018</h1>      
+        <h2>ESNext</h2>  
+    </body>
+    
+    <script>
+        
+        /*com o arrow function o this possui escopo lexico, não vai sofrer alteração*/
+        let daniel = {
+            nome: 'Daniel',
+            notas: [1,2,3,4],
+            
+            //toString: método que retorna uma String
+            toString: function(){
+                console.log(`As notas de ${this.nome} foram: `);
+                this.notas.forEach( (nota, i) => console.log(`a nota ${i + 1} de ${this.nome} foi ${nota}`));
+            },
+
+            surpresa: function(){
+                console.log(`o aluno ${this.nome} foi .....`);
+                setTimeout( () => {
+                    console.log(`Parabéns ${this.nome}. Você foi aprovado`);
+                }, 1000);
+            },
+            
+            teste1: function(){
+                console.log('teste1', this.nome);
+            },
+            teste2: () => {
+                console.log('teste2', this.nome);
+            }
+        }
+        
+        daniel.surpresa();
+        daniel.teste1();
+        daniel.teste2();
+        
+    </script>
+</html>

@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Curso Javascript Completo 2018</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1>Curso Javascript Completo 2018</h1>      
+        <h2>ESNext</h2> 
+    </body>
+    <script>
+        /* ES6, ECMAScript 6, ou ES2015:
+            -as propriedades dinâmicas:
+        possiblidade de criar uma propriedade de um objeto com base
+        em uma variável.
+        */
+        var a = 1;
+        var b = 'teste';
+        var c = [1,2,3];
+        //ES5
+        const objeto1 = {
+            a: a,
+            b: b,
+            c: c
+        }
+        //ES6
+        const objeto2 = {a,b,c};
+        
+        var propriedade = '_prop';
+        
+        var objeto3 = {
+            [propriedade]: 'qualquer string'
+        }
+    </script>
+</html>

@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Curso Javascript Completo 2018</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1>Curso Javascript Completo 2018</h1>      
+        <h2>ESNext</h2>
+    </body>
+    <script>
+        //valor padrão no parâmetro
+        function criarAluno(nome, nota = 0){
+            console.log(`criar aluno ${nome} com nota ${nota.toFixed(2)}`);
+        }    
+        criarAluno('José', 0);
+        criarAluno('João', 5);    
+        criarAluno('Daniel');
+    </script>
+</html>
