@@ -50,7 +50,10 @@
 
                 $btnPrev.addEventListener('click', showPrev);
                 $btnNext.addEventListener('click', showNext);
-
+				
+				montaPaginacao();
+				setupNav(bannerAtual);
+				
                 function showPrev(){
                     bannerAtual--;
                     mostrarBanner(bannerAtual);
@@ -60,8 +63,6 @@
                     bannerAtual++;
                     mostrarBanner(bannerAtual);                   
                 }
-
-                montaPaginacao();
 
                 function setupNav(bannerAtual){
                     $btnPrev.disabled = !bannerAtual > 0;   
